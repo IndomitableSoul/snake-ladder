@@ -7,9 +7,10 @@ public class SnakeAndLadderGame {
 	public static void main(String[] args) {
 		Person person1 = new Person();
 		System.out.println(person1.position);
-		
+		int dieRollCount = 0;
 		while(person1.position<=100) {
 			System.out.println("Rolling the Die");
+			dieRollCount++;
 			//die rolling
 			int diceValue = (int)(Math.floor(Math.random()*10)%6+1);
 			System.out.println("Die Value came as: " +diceValue);
@@ -25,9 +26,9 @@ public class SnakeAndLadderGame {
 			  }
 			case LADDER:{
 				int playerPosition = person1.position;
-				playerPosition = playerPosition+diceValue;
+				playerPosition = playerPosition+100;
 				System.out.println("New position evaluated to "+playerPosition);
-				if(playerPosition>=100)
+				if(playerPosition>100)
 					System.out.println("You Stay Where You Are");
 				else
 					person1.position = playerPosition;
@@ -41,9 +42,11 @@ public class SnakeAndLadderGame {
 				break;
 			  }
 			}
-			System.out.println("position is  "+ person1.position);
+			System.out.println("New position is  "+ person1.position);
+			
 			System.out.println("______________________");
 		}
+		System.out.println("Number of times the die wa srolled to win the game was: " + dieRollCount);
 		
 	}
 }
