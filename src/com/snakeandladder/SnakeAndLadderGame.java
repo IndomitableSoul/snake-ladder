@@ -24,7 +24,14 @@ public class SnakeAndLadderGame {
 				break;
 			  }
 			case LADDER:{
-				person1.position = person1.position + diceValue;
+				int playerPosition = person1.position;
+				playerPosition = playerPosition+diceValue;
+				System.out.println("New position evaluated to "+playerPosition);
+				if(playerPosition>=100)
+					System.out.println("You Stay Where You Are");
+				else
+					person1.position = playerPosition;
+				
 				break;
 			  }
 			case SNAKE:{
